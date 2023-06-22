@@ -2,6 +2,7 @@ import Home from "./src/pages/Home/index";
 import Login from "./src/pages/Login";
 import Editora from "./src/pages/Editora";
 import Livro from "./src/pages/Livro";
+import HomeEditoras from "./src/pages/HomeEditoras";
 import "react-native-gesture-handler";
 import { DataProvider } from "./src/context/DataContext";
 import { EditoraProvider } from "./src/context/EditoraContext";
@@ -37,12 +38,17 @@ export default function App() {
             <Drawer.Screen
               name="Editora"
               component={Editora}
-              options={{ headerShown: true }}
+              options={{ headerShown: true, drawerItemStyle: { height: 0 } }}
             />
             <Drawer.Screen
               name="Livro"
               component={Livro}
-              options={{ headerShown: false, drawerItemStyle: { height: 0 } }}
+              options={{ headerShown: true, drawerItemStyle: { height: 0 } }}
+            />
+            <Drawer.Screen
+              name="Editoras"
+              component={HomeEditoras}
+              options={{ headerShown: true }}
             />
           </Drawer.Navigator>
         </NavigationContainer>

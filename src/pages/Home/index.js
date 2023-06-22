@@ -2,11 +2,9 @@ import {
   StyleSheet,
   Text,
   View,
-  TextInput,
   TouchableOpacity,
   FlatList,
   Image,
-  ImageBackground,
 } from "react-native";
 import { useState, useContext, useEffect } from "react";
 import { Rating } from "react-native-ratings";
@@ -14,38 +12,6 @@ import AxiosInstance from "../../api/AxiosInstance";
 import { DataContext } from "../../context/DataContext";
 import { EditoraContext } from "../../context/EditoraContext";
 import LivrosRecentes from "../../components/LivrosRecentes";
-//const { rating } = this.props;
-
-const DATA_RECENTES = [
-  {
-    id: "1",
-    urlImg:
-      "https://images.pexels.com/photos/17054024/pexels-photo-17054024/free-photo-of-agricultura-colheita-safra-terra-cultivada.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    title: "image 1",
-    description: "description 1",
-  },
-  {
-    id: "2",
-    urlImg:
-      "https://images.pexels.com/photos/16988521/pexels-photo-16988521/free-photo-of-animal-bicho-fofo-bonitinho.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    title: "image 2",
-    description: "description 2",
-  },
-  {
-    id: "3",
-    urlImg:
-      "https://images.pexels.com/photos/16897680/pexels-photo-16897680/free-photo-of-arquitetura-construcao-predio-edificio.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    title: "image 3",
-    description: "description 3",
-  },
-  {
-    id: "4",
-    urlImg:
-      "https://images.pexels.com/photos/16636452/pexels-photo-16636452/free-photo-of-agricultura-arquitetura-construcao-predio.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    title: "image 4",
-    description: "description 4",
-  },
-];
 
 const DATA_DESTAQUE = {
   id: "1",
@@ -75,19 +41,6 @@ const Editora = ({ item, navigation }) => {
     </View>
   );
 };
-
-const CardLivro = ({ urlImage, title, description }) => (
-  <View style={styles.CardLivro}>
-    <Image
-      style={styles.tinyLogo}
-      source={{
-        uri: urlImage,
-      }}
-    ></Image>
-    <Text style={styles.cardTitle}>{title}</Text>
-    <Text style={styles.cardDescription}>{description}</Text>
-  </View>
-);
 
 const CardDestaque = ({ urlImage, title, description, rating }) => (
   <View style={styles.CardDestaque}>
