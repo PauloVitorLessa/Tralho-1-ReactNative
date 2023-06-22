@@ -43,11 +43,11 @@ export default function Login({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Bem-Vindo</Text>
+      <Text style={styles.text}>Bem-vindos</Text>
       <TextInput
         onChangeText={setEmail}
         value={email}
-        placeholder="e-mail"
+        placeholder="digite seu e-mail"
         style={styles.input}
       />
       <View style={styles.passwordInputContainer}>
@@ -55,7 +55,7 @@ export default function Login({ navigation }) {
           <TextInput
             onChangeText={setSenha}
             value={senha}
-            placeholder="senha"
+            placeholder="digite sua senha"
             secureTextEntry={!mostrarSenha}
             style={styles.passwordInput}
           />
@@ -92,21 +92,29 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: "white",
+    borderWidth: 2,
     marginBottom: 20,
     borderRadius: 5,
-    padding: 4,
-    width: 200,
+    padding: 9,
+    width: 250,
+    height: 35,
+    borderColor: 'green',
   },
   passwordInputContainer: {
     alignItems: "center",
     marginBottom: 20,
-    width: 200,
+    width: 20,
   },
   passwordInputWrapper: {
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: "white",
     borderRadius: 5,
+    width: 250,
+    height: 35,
+    padding: 5,
+    borderWidth: 2,
+    borderColor: 'green',
   },
   passwordInput: {
     flex: 1,
@@ -118,13 +126,14 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "green",
     marginTop: 10,
-    width: 200,
-    height: 30,
+    width: 250,
+    height: 35,
     borderRadius: 5,
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "center", 
   },
   buttonText: {
     color: "white",
+    fontWeight: 'bold',
   },
 });

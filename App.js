@@ -14,7 +14,8 @@ export default function App() {
     <DataProvider>
       <EditoraProvider>
         <NavigationContainer>
-          <Stack.Navigator screenOptions={{ headerShown: false }}>
+        {/* screenOptions={{ headerShown: false }} */}
+          <Stack.Navigator>
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Editora" component={Editora} />

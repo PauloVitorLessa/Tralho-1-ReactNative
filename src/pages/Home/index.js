@@ -13,7 +13,7 @@ import { Rating } from "react-native-ratings";
 import AxiosInstance from "../../api/AxiosInstance";
 import { DataContext } from "../../context/DataContext";
 import { EditoraContext } from "../../context/EditoraContext";
-
+import LivrosRecentes from "../../components/LivrosRecentes";
 //const { rating } = this.props;
 
 const DATA_RECENTES = [
@@ -65,12 +65,12 @@ const Editora = ({ item, navigation }) => {
   return (
     <View style={styles.item}>
       <TouchableOpacity onPress={onPressHandler}>
-        <ImageBackground
+        <Image
           source={{
             uri: `data:image/png;base64,${item.img}`,
           }}
           style={styles.imageEditora}
-        ></ImageBackground>
+        ></Image>
       </TouchableOpacity>
     </View>
   );
@@ -79,10 +79,10 @@ const Editora = ({ item, navigation }) => {
 const CardLivro = ({ urlImage, title, description }) => (
   <View style={styles.CardLivro}>
     <Image
+      style={styles.tinyLogo}
       source={{
         uri: urlImage,
       }}
-      style={styles.imageCardLivro}
     ></Image>
     <Text style={styles.cardTitle}>{title}</Text>
     <Text style={styles.cardDescription}>{description}</Text>
@@ -135,6 +135,7 @@ export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.editorasContainer}>
+        <Text style={styles.title}>EDITORAS</Text>
         <FlatList
           //disableScrollViewPanResponder
           horizontal={true}
@@ -145,21 +146,8 @@ export default function Home({ navigation }) {
           keyExtractor={(item) => item.codigoEditora}
         />
       </View>
-      <View style={styles.recentesContainer}>
-        <Text style={styles.recentesContainer.text}>Recentes</Text>
-        <FlatList
-          horizontal={true}
-          data={DATA_RECENTES}
-          renderItem={({ item }) => (
-            <CardLivro
-              urlImage={item.urlImg}
-              title={item.title}
-              description={item.description}
-            />
-          )}
-          keyExtractor={(item) => item.id}
-        />
-      </View>
+      {/* Chama do card de Livros Recentes */}
+      <LivrosRecentes />
       <View style={styles.destaqueContainer}>
         <Text style={styles.recentesContainer.text}>Destaque</Text>
         <CardDestaque
@@ -183,8 +171,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   editorasContainer: {
-    backgroundColor: "black",
-    flex: 0.5,
+    margin: 10,
   },
 
   recentesContainer: {
@@ -259,17 +246,21 @@ const styles = StyleSheet.create({
     alignContent: "center",
     alignSelf: "center",
     alignItems: "center",
+    borderRadius: 50,
   },
   title: {
-    fontSize: 32,
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: "green",
+    paddingBottom: 10,
   },
   imageEditora: {
-    width: 100,
-    height: 100,
+    width: 70,
+    height: 70,
     resizeMode: "cover",
-    marginRight: 30,
-    //marginTop: 40,
+    marginRight: 20,
     justifyContent: "center",
+    borderRadius: 100,
   },
   imageCardLivro: {
     width: 110,
@@ -304,4 +295,10 @@ const styles = StyleSheet.create({
   rating: {
     padding: 10,
   },
+  tinyLogo: {
+    borderRadius: 100,
+    margin: 10,
+    width: 70,
+    height: 70,
+  }
 });
