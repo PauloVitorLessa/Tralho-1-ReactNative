@@ -26,7 +26,7 @@ const RenderHomeEditora = ({ item, navigation }) => {
   const { armazenarDadosLivro } = useContext(LivroContext);
   const onPressHandler = (livro) => {
     armazenarDadosLivro(livro);
-    navigation.navigate("Editora");
+    navigation.navigate("Livro");
   };
   return (
     <View style={styles.cardContainer}>

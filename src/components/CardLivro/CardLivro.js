@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     marginTop: 5,
     width: windowWidth / 2 - 10,
+    flex: 1,
   },
 
   cardInfo: {
