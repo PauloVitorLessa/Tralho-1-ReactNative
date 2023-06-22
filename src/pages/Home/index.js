@@ -65,12 +65,12 @@ const Editora = ({ item, navigation }) => {
   return (
     <View style={styles.item}>
       <TouchableOpacity onPress={onPressHandler}>
-        <ImageBackground
+        <Image
           source={{
             uri: `data:image/png;base64,${item.img}`,
           }}
           style={styles.imageEditora}
-        ></ImageBackground>
+        ></Image>
       </TouchableOpacity>
     </View>
   );
@@ -79,10 +79,10 @@ const Editora = ({ item, navigation }) => {
 const CardLivro = ({ urlImage, title, description }) => (
   <View style={styles.CardLivro}>
     <Image
+      style={styles.tinyLogo}
       source={{
         uri: urlImage,
       }}
-      style={styles.imageCardLivro}
     ></Image>
     <Text style={styles.cardTitle}>{title}</Text>
     <Text style={styles.cardDescription}>{description}</Text>
@@ -246,19 +246,21 @@ const styles = StyleSheet.create({
     alignContent: "center",
     alignSelf: "center",
     alignItems: "center",
+    borderRadius: 50,
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
     color: "green",
+    paddingBottom: 10,
   },
   imageEditora: {
-    width: 100,
-    height: 100,
+    width: 70,
+    height: 70,
     resizeMode: "cover",
-    marginRight: 30,
+    marginRight: 20,
     justifyContent: "center",
-    borderRadius: 50,
+    borderRadius: 100,
   },
   imageCardLivro: {
     width: 110,
@@ -293,4 +295,10 @@ const styles = StyleSheet.create({
   rating: {
     padding: 10,
   },
+  tinyLogo: {
+    borderRadius: 100,
+    margin: 10,
+    width: 70,
+    height: 70,
+  }
 });

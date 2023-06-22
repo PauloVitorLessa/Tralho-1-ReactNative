@@ -6,8 +6,8 @@ import { DataContext } from "../../context/DataContext";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const Item = ({img, navigation}) => (
-   <TouchableOpacity onPress={() => {
-    navigation.navigate("Editoras");
+   <TouchableOpacity style={styles.item} onPress={() => {
+    navigation.navigate('');
    }}>
      <Image
          style={styles.tinyLogo}
@@ -40,14 +40,18 @@ export default function LivrosRecentes({ navigation }) {
   }
 
   return(
-    <View>
+    <View style={styles.container}>
       <Text style={styles.title}>RECENTES</Text>
-        <FlatList
-          data={dadosLivros}
-          renderItem={({item}) => <Item img={item.img} navigation={navigation} nome={item.nomeEditora} />}
-          keyExtractor={item => item.codigoLivro}
-          horizontal={true}
-        />
+      <View style={styles.caixinha}>
+        <View style={styles.livros}>
+          <FlatList
+            data={dadosLivros}
+            renderItem={({item}) => <Item img={item.img} navigation={navigation} nome={item.nomeEditora} />}
+            keyExtractor={item => item.codigoLivro}
+            horizontal={true}
+          />
+        </View>
+      </View>
     </View>
   )
 }
@@ -55,13 +59,12 @@ export default function LivrosRecentes({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#d3d3d3'
+    gap: 4,
   },
   item: {
-    backgroundColor: '#f9c2ff',
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
+    backgroundColor: 'black',
+    marginLeft: 5,
+    marginRight: 5,
   },
   title: {
     margin: 10,
@@ -72,8 +75,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   tinyLogo: {
-    margin: 10,
     width: 150,
     height: 250,
+  },
+  livros: {
+    margin: 10,
   },
 });
