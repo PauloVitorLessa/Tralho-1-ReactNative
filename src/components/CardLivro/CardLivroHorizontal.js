@@ -7,11 +7,15 @@ import {
   FlatList,
   Image,
   ImageBackground,
+  Dimensions,
 } from "react-native";
 import { useState, useContext, useEffect } from "react";
 import { Rating } from "react-native-ratings";
 import AxiosInstance from "../../api/AxiosInstance";
 import { DataContext } from "../../context/DataContext";
+
+const windowWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
 
 //const { rating } = this.props;
 
@@ -28,7 +32,6 @@ export default function CardLivroHorizontal(props) {
       ></Image>
       <View style={styles.CardBody}>
         <Text style={styles.cardTitle}>{props.title}</Text>
-        <Text style={styles.cardDescription}>{props.description}</Text>
       </View>
     </View>
   );
@@ -36,31 +39,24 @@ export default function CardLivroHorizontal(props) {
 
 const styles = StyleSheet.create({
   imageCardLivro: {
-    width: 175,
+    width: windowWidth / 2 - 5,
     height: 120,
     resizeMode: "cover",
   },
 
   CardLivroHorizontal: {
-    backgroundColor: "white",
+    backgroundColor: "#2D2033",
     borderColor: "black",
-    alignSelf: "center",
     borderRadius: 5,
     paddingBottom: 0,
     flexDirection: "row",
     marginBottom: 5,
     marginTop: 5,
+    width: windowWidth - 10,
   },
   cardTitle: {
-    color: "black",
+    color: "white",
     fontSize: 16,
-    textAlign: "left",
-    borderRadius: 10,
-    paddingLeft: 3,
-  },
-  cardDescription: {
-    color: "gray",
-    fontSize: 12,
     textAlign: "left",
     borderRadius: 10,
     paddingLeft: 3,
@@ -68,6 +64,7 @@ const styles = StyleSheet.create({
   CardBody: {
     justifyContent: "center",
     padding: 3,
-    width: 175,
+    width: windowWidth / 2 - 5,
+    alignItems: "center",
   },
 });

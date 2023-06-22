@@ -7,15 +7,15 @@ import {
   FlatList,
   Image,
   ImageBackground,
+  Dimensions,
 } from "react-native";
 import { useState, useContext, useEffect } from "react";
 import { Rating } from "react-native-ratings";
 import AxiosInstance from "../../api/AxiosInstance";
 import { DataContext } from "../../context/DataContext";
 
-//const { rating } = this.props;
-
-//const CardLivro = ({ urlImage, title, description })
+const windowWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
 
 export default function CardLivroGrande(props) {
   return (
@@ -26,41 +26,44 @@ export default function CardLivroGrande(props) {
         }}
         style={styles.imageCardLivro}
       ></Image>
-      <Text style={styles.cardTitle}>{props.title}</Text>
-      <Text style={styles.cardDescription}>{props.description}</Text>
+      <View style={styles.cardInfo}>
+        <Text style={styles.cardTitle}>{props.title}</Text>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   cardTitle: {
-    color: "black",
+    color: "white",
     fontSize: 16,
-    textAlign: "left",
     borderRadius: 10,
     paddingLeft: 3,
-  },
-  cardDescription: {
-    color: "gray",
-    fontSize: 12,
-    textAlign: "left",
-    borderRadius: 10,
-    paddingLeft: 3,
+    paddingRight: 3,
+    paddingTop: 10,
+    paddingBottom: 10,
+    textAlign: "center",
   },
 
   imageCardLivro: {
-    width: 340,
+    width: windowWidth - 10,
     height: 170,
     resizeMode: "cover",
   },
 
   CardLivroGrande: {
-    backgroundColor: "white",
+    backgroundColor: "#2D2033",
     borderColor: "black",
     alignSelf: "center",
     borderRadius: 5,
     paddingBottom: 3,
     marginTop: 5,
     marginBottom: 5,
+    width: windowWidth - 10,
+    //height: 210,
+  },
+  cardInfo: {
+    justifyContent: "center",
+    flex: 1,
   },
 });
