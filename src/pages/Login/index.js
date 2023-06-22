@@ -96,9 +96,10 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     borderRadius: 5,
     padding: 9,
-    width: 250,
-    height: 35,
+    width: 270,
+    height: 40,
     borderColor: 'green',
+    fontSize: 16,
   },
   passwordInputContainer: {
     alignItems: "center",
@@ -110,8 +111,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "white",
     borderRadius: 5,
-    width: 250,
-    height: 35,
+    width: 270,
+    height: 40,
     padding: 5,
     borderWidth: 2,
     borderColor: 'green',
@@ -119,6 +120,7 @@ const styles = StyleSheet.create({
   passwordInput: {
     flex: 1,
     padding: 4,
+    fontSize: 16,
   },
   showPasswordButton: {
     padding: 2, // Reduzi o tamanho do padding
@@ -126,8 +128,8 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "green",
     marginTop: 10,
-    width: 250,
-    height: 35,
+    width: 270,
+    height: 40,
     borderRadius: 5,
     alignItems: "center",
     justifyContent: "center", 

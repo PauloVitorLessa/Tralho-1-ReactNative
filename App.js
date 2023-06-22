@@ -8,9 +8,13 @@ import { EditoraProvider } from "./src/context/EditoraContext";
 import { LivroProvider } from "./src/context/LivroContext";
 
 import { createStackNavigator } from "@react-navigation/stack";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
@@ -18,15 +22,31 @@ export default function App() {
       <EditoraProvider>
         <LivroProvider>
           <NavigationContainer>
-            {/* screenOptions={{ headerShown: false }} */}
-            <Stack.Navigator>
-              <Stack.Screen name="Login" component={Login} />
-              <Stack.Screen name="Home" component={Home} />
-              <Stack.Screen name="Editora" component={Editora} />
-              <Stack.Screen name="Livro" component={Livro} />
-            </Stack.Navigator>
-          </NavigationContainer>
-        </LivroProvider>
+          {/* screenOptions={{ headerShown: false }} */}
+          {/* <Stack.Navigator screenOptions={{ headerShown: false }}> */}
+          <Drawer.Navigator useLegacyImplementation>
+            <Drawer.Screen
+              name="Login"
+              component={Login}
+              options={{ headerShown: false, drawerItemStyle: { height: 0 } }}
+            />
+            <Drawer.Screen 
+              name="Home"
+              component={Home}
+            />
+            <Drawer.Screen
+              name="Editora"
+              component={Editora}
+              options={{ headerShown: true }}
+            />
+            <Drawer.Screen
+              name="Livro"
+              component={Livro}
+              options={{ headerShown: false, drawerItemStyle: { height: 0 } }}
+            />
+          </Drawer.Navigator>
+        </NavigationContainer>
+       </LivroProvider>
       </EditoraProvider>
     </DataProvider>
   );
