@@ -7,7 +7,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 
 const Item = ({img, navigation}) => (
    <TouchableOpacity style={styles.item} onPress={() => {
-    navigation.navigate('');
+    navigation.navigate("Livro")
    }}>
      <Image
          style={styles.tinyLogo}
@@ -42,7 +42,6 @@ export default function LivrosRecentes({ navigation }) {
   return(
     <View style={styles.container}>
       <Text style={styles.title}>RECENTES</Text>
-      <View style={styles.caixinha}>
         <View style={styles.livros}>
           <FlatList
             data={dadosLivros}
@@ -51,7 +50,6 @@ export default function LivrosRecentes({ navigation }) {
             horizontal={true}
           />
         </View>
-      </View>
     </View>
   )
 }
