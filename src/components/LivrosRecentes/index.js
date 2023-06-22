@@ -63,8 +63,7 @@ const styles = StyleSheet.create({
   },
   item: {
     backgroundColor: 'black',
-    marginLeft: 5,
-    marginRight: 5,
+    marginRight: 10,
   },
   title: {
     margin: 10,
@@ -77,6 +76,8 @@ const styles = StyleSheet.create({
   tinyLogo: {
     width: 150,
     height: 250,
+    marginBottom: 20,
+    backgroundColor: 'white',
   },
   livros: {
     margin: 10,
