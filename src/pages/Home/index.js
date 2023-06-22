@@ -55,9 +55,9 @@ const DATA_DESTAQUE = {
   rating: 5,
 };
 
-const Editora = ({ img }) => {
+const Editora = ({ img, navigation }) => {
   const onPressHandler = () => {
-    console.log("hi");
+    navigation.navigate("Editora");
   };
   return (
     <View style={styles.item}>
@@ -106,7 +106,7 @@ const CardDestaque = ({ urlImage, title, description, rating }) => (
   </View>
 );
 
-export default function Home() {
+export default function Home({ navigation }) {
   const { dadosUsuario } = useContext(DataContext);
   const [dadosEditora, setDadosEditora] = useState();
 
@@ -137,7 +137,11 @@ export default function Home() {
           horizontal={true}
           data={dadosEditora}
           renderItem={({ item }) => (
-            <Editora img={item.img} text={item.nomeEditora} />
+            <Editora
+              img={item.img}
+              text={item.nomeEditora}
+              navigation={navigation}
+            />
           )}
           keyExtractor={(item) => item.codigoEditora}
         />

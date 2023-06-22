@@ -1,5 +1,6 @@
 import Home from "./src/pages/Home/index";
 import Login from "./src/pages/Login";
+import Editora from "./src/pages/Editora";
 import "react-native-gesture-handler";
 import { DataProvider } from "./src/context/DataContext";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -14,6 +15,7 @@ export default function App() {
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Editora" component={Editora} />
         </Stack.Navigator>
       </NavigationContainer>
     </DataProvider>
