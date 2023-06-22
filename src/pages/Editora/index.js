@@ -113,7 +113,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "black",
-    marginTop: 30,
     //padding: 10, // Aumentei a margem para 10
     flex: 1,
   },
