@@ -13,7 +13,7 @@ import { Rating } from "react-native-ratings";
 import AxiosInstance from "../../api/AxiosInstance";
 import { DataContext } from "../../context/DataContext";
 import { EditoraContext } from "../../context/EditoraContext";
-
+import LivrosRecentes from "../../components/LivrosRecentes";
 //const { rating } = this.props;
 
 const DATA_RECENTES = [
@@ -135,6 +135,7 @@ export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.editorasContainer}>
+        <Text style={styles.title}>EDITORAS</Text>
         <FlatList
           //disableScrollViewPanResponder
           horizontal={true}
@@ -145,21 +146,8 @@ export default function Home({ navigation }) {
           keyExtractor={(item) => item.codigoEditora}
         />
       </View>
-      <View style={styles.recentesContainer}>
-        <Text style={styles.recentesContainer.text}>Recentes</Text>
-        <FlatList
-          horizontal={true}
-          data={DATA_RECENTES}
-          renderItem={({ item }) => (
-            <CardLivro
-              urlImage={item.urlImg}
-              title={item.title}
-              description={item.description}
-            />
-          )}
-          keyExtractor={(item) => item.id}
-        />
-      </View>
+      {/* Chama do card de Livros Recentes */}
+      <LivrosRecentes />
       <View style={styles.destaqueContainer}>
         <Text style={styles.recentesContainer.text}>Destaque</Text>
         <CardDestaque
@@ -183,8 +171,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   editorasContainer: {
-    backgroundColor: "black",
-    flex: 0.5,
+    margin: 10,
   },
 
   recentesContainer: {
@@ -261,15 +248,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   title: {
-    fontSize: 32,
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: "green",
   },
   imageEditora: {
     width: 100,
     height: 100,
     resizeMode: "cover",
     marginRight: 30,
-    //marginTop: 40,
     justifyContent: "center",
+    borderRadius: 50,
   },
   imageCardLivro: {
     width: 110,
