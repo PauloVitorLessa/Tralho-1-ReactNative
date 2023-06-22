@@ -192,127 +192,53 @@ export default function Editora() {
 
 const styles = StyleSheet.create({
   container: {
-    //alignItems: "center",
     justifyContent: "center",
     backgroundColor: "black",
+    marginTop: 20,
+    padding: 10, // Aumentei a margem para 10
     flex: 1,
-    marginTop: 37,
-    padding: 5,
   },
   editorasContainer: {
     backgroundColor: "black",
-    flex: 0.5,
   },
+  // Resto do código...
 
-  recentesContainer: {
-    alignItems: "flex-start",
-
-    backgroundColor: "black",
-    flex: 0.6,
-
-    text: {
-      color: "white",
-      fontSize: 20,
-    },
-  },
-  destaqueContainer: {
-    alignItems: "flex-start",
-
-    backgroundColor: "black",
-    flex: 1,
-
-    text: {
-      color: "white",
-      fontSize: 20,
-    },
-  },
-
-  text: {
-    color: "white",
-    fontSize: 20,
-    textAlign: "center",
-    backgroundColor: "rgba(52, 52, 52, 0.5)",
-    alignSelf: "center",
-    borderRadius: 10,
-  },
-  cardTitle: {
-    color: "black",
-    fontSize: 16,
-    textAlign: "left",
-    borderRadius: 10,
-    paddingLeft: 3,
-  },
-  cardDescription: {
-    color: "gray",
-    fontSize: 12,
-    textAlign: "left",
-    borderRadius: 10,
-    paddingLeft: 3,
-  },
-
-  input: {
-    backgroundColor: "white",
-    marginBottom: 20,
-    borderRadius: 5,
-    padding: 4,
-    width: 200,
-  },
-
-  button: {
-    backgroundColor: "white",
-    marginTop: 10,
-    width: 200,
-    height: 30,
-    borderRadius: 5,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "green",
-  },
-
-  buttonText: {
-    color: "white",
-  },
-  item: {
-    alignContent: "center",
-    alignSelf: "center",
-    alignItems: "center",
-  },
-  title: {
-    fontSize: 32,
-  },
   imageEditora: {
-    width: 100,
-    height: 100,
     resizeMode: "cover",
     marginRight: 30,
-    //marginTop: 40,
     justifyContent: "center",
+    borderRadius: 10, // Adicionei borda arredondada
+    marginBottom: 10, // Aumentei a margem inferior para 10
   },
 
   imageCardDestaque: {
-    width: 340,
+    maxWidth: "100%",
     height: 230,
     resizeMode: "cover",
+    borderRadius: 10, // Adicionei borda arredondada
+    marginBottom: 10, // Aumentei a margem inferior para 10
   },
 
   CardDestaque: {
     backgroundColor: "white",
     borderColor: "black",
     alignSelf: "center",
-    borderRadius: 5,
+    borderRadius: 10, // Adicionei borda arredondada
     paddingBottom: 3,
     marginTop: 3,
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginBottom: 10, // Aumentei a margem inferior para 10
   },
   destaqueBodyContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-  },
-  rating: {
-    padding: 10,
+    alignItems: "center",
   },
 
   flexDirectionRow: {
     flexDirection: "row",
     justifyContent: "space-between",
+    gap: 10,
   },
 });

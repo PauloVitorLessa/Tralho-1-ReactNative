@@ -36,7 +36,7 @@ export default function CardLivroHorizontal(props) {
 
 const styles = StyleSheet.create({
   imageCardLivro: {
-    width: 170,
+    width: 175,
     height: 120,
     resizeMode: "cover",
   },
@@ -68,6 +68,6 @@ const styles = StyleSheet.create({
   CardBody: {
     justifyContent: "center",
     padding: 3,
-    width: 170,
+    width: 175,
   },
 });

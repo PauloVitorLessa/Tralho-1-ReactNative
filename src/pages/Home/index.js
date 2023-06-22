@@ -124,8 +124,6 @@ export default function Home({ navigation }) {
       .then((resultado) => {
         console.log("GetTodasEditoras:" + resultado.data);
         setDadosEditora(resultado.data);
-        console.log("aqui");
-        console.log(resultado.data);
       })
       .catch((error) => {
         console.log(
