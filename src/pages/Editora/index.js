@@ -14,6 +14,7 @@ import { Rating } from "react-native-ratings";
 import AxiosInstance from "../../api/AxiosInstance";
 import { DataContext } from "../../context/DataContext";
 import { EditoraContext } from "../../context/EditoraContext";
+import { LivroContext } from "../../context/LivroContext";
 import CardLivro from "../../components/CardLivro/CardLivro";
 import CardLivroHorizontal from "../../components/CardLivro/CardLivroHorizontal";
 import CardLivroGrande from "../../components/CardLivro/CardLivroGrande";
@@ -21,46 +22,81 @@ import CardLivroGrande from "../../components/CardLivro/CardLivroGrande";
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
-const RenderHomeEditora = (props) => {
+const RenderHomeEditora = ({ item, navigation }) => {
+  const { armazenarDadosLivro } = useContext(LivroContext);
+  const onPressHandler = (livro) => {
+    armazenarDadosLivro(livro);
+    navigation.navigate("Livro");
+  };
   return (
     <View style={styles.cardContainer}>
-      {props.item[0].img ? (
-        <CardLivroHorizontal
-          img={props.item[0].img}
-          title={props.item[0].title}
-          //description={props.item[0].description}
-        />
+      {item[0].img ? (
+        <TouchableOpacity
+          onPress={() => {
+            onPressHandler(item[0]);
+          }}
+        >
+          <CardLivroHorizontal
+            img={item[0].img}
+            title={item[0].title}
+            //description={props.item[0].description}
+          />
+        </TouchableOpacity>
       ) : null}
 
       <View style={styles.flexDirectionRow}>
-        {props.item[1].img ? (
-          <CardLivro
-            img={props.item[1].img}
-            title={props.item[1].title}
-            //description={props.item[1].description}
-          ></CardLivro>
+        {item[1].img ? (
+          <TouchableOpacity
+            onPress={() => {
+              onPressHandler(item[1]);
+            }}
+          >
+            <CardLivro
+              img={item[1].img}
+              title={item[1].title}
+              //description={props.item[1].description}
+            ></CardLivro>
+          </TouchableOpacity>
         ) : null}
-        {props.item[2].img ? (
-          <CardLivro
-            img={props.item[2].img}
-            title={props.item[2].title}
-            //description={props.item[2].description}
-          ></CardLivro>
+        {item[2].img ? (
+          <TouchableOpacity
+            onPress={() => {
+              onPressHandler(item[2]);
+            }}
+          >
+            <CardLivro
+              img={item[2].img}
+              title={item[2].title}
+              //description={props.item[2].description}
+            ></CardLivro>
+          </TouchableOpacity>
         ) : null}
       </View>
-      {props.item[3].img ? (
-        <CardLivroHorizontal
-          img={props.item[3].img}
-          title={props.item[3].title}
-          //description={props.item[3].description}
-        ></CardLivroHorizontal>
+      {item[3].img ? (
+        <TouchableOpacity
+          onPress={() => {
+            onPressHandler(item[3]);
+          }}
+        >
+          <CardLivroHorizontal
+            img={item[3].img}
+            title={item[3].title}
+            //description={props.item[3].description}
+          ></CardLivroHorizontal>
+        </TouchableOpacity>
       ) : null}
-      {props.item[4].img ? (
-        <CardLivroGrande
-          img={props.item[4].img}
-          title={props.item[4].title}
-          //description={props.item[4].description}
-        ></CardLivroGrande>
+      {item[4].img ? (
+        <TouchableOpacity
+          onPress={() => {
+            onPressHandler(item[4]);
+          }}
+        >
+          <CardLivroGrande
+            img={item[4].img}
+            title={item[4].title}
+            //description={props.item[4].description}
+          ></CardLivroGrande>
+        </TouchableOpacity>
       ) : null}
     </View>
   );
@@ -91,7 +127,7 @@ const generateData = () => {
   return dataList;
 };
 
-export default function Editora() {
+export default function Editora({ navigation }) {
   const { dadosUsuario } = useContext(DataContext);
   const [dadosEditora, setDadosEditora] = useState();
 
@@ -101,7 +137,9 @@ export default function Editora() {
     <View style={styles.container}>
       <FlatList
         data={dataList}
-        renderItem={({ item }) => <RenderHomeEditora item={item} />}
+        renderItem={({ item }) => (
+          <RenderHomeEditora item={item} navigation={navigation} />
+        )}
         keyExtractor={(item, index) => "key" + index}
       />
     </View>

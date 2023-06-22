@@ -5,6 +5,8 @@ import Livro from "./src/pages/Livro";
 import "react-native-gesture-handler";
 import { DataProvider } from "./src/context/DataContext";
 import { EditoraProvider } from "./src/context/EditoraContext";
+import { LivroProvider } from "./src/context/LivroContext";
+
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
@@ -18,7 +20,8 @@ export default function App() {
   return (
     <DataProvider>
       <EditoraProvider>
-        <NavigationContainer>
+        <LivroProvider>
+          <NavigationContainer>
           {/* screenOptions={{ headerShown: false }} */}
           {/* <Stack.Navigator screenOptions={{ headerShown: false }}> */}
           <Drawer.Navigator useLegacyImplementation>
@@ -43,6 +46,7 @@ export default function App() {
             />
           </Drawer.Navigator>
         </NavigationContainer>
+       </LivroProvider>
       </EditoraProvider>
     </DataProvider>
   );
