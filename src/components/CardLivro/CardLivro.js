@@ -22,7 +22,7 @@ export default function CardLivro(props) {
     <View style={styles.CardLivro}>
       <Image
         source={{
-          uri: props.img,
+          uri: `data:image/png;base64,${props.img}`,
         }}
         style={styles.imageCardLivro}
       ></Image>

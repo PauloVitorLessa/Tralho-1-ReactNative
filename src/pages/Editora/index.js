@@ -12,6 +12,7 @@ import { useState, useContext, useEffect } from "react";
 import { Rating } from "react-native-ratings";
 import AxiosInstance from "../../api/AxiosInstance";
 import { DataContext } from "../../context/DataContext";
+import { EditoraContext } from "../../context/EditoraContext";
 import CardLivro from "../../components/CardLivro/CardLivro";
 import CardLivroHorizontal from "../../components/CardLivro/CardLivroHorizontal";
 import CardLivroGrande from "../../components/CardLivro/CardLivroGrande";
@@ -110,7 +111,7 @@ const RenderHomeEditora = (props) => {
         <CardLivroHorizontal
           img={props.item[0].img}
           title={props.item[0].title}
-          description={props.item[0].description}
+          //description={props.item[0].description}
         />
       ) : null}
 
@@ -119,14 +120,14 @@ const RenderHomeEditora = (props) => {
           <CardLivro
             img={props.item[1].img}
             title={props.item[1].title}
-            description={props.item[1].description}
+            //description={props.item[1].description}
           ></CardLivro>
         ) : null}
         {props.item[2].img ? (
           <CardLivro
             img={props.item[2].img}
             title={props.item[2].title}
-            description={props.item[2].description}
+            //description={props.item[2].description}
           ></CardLivro>
         ) : null}
       </View>
@@ -134,14 +135,14 @@ const RenderHomeEditora = (props) => {
         <CardLivroHorizontal
           img={props.item[3].img}
           title={props.item[3].title}
-          description={props.item[3].description}
+          //description={props.item[3].description}
         ></CardLivroHorizontal>
       ) : null}
       {props.item[4].img ? (
         <CardLivroGrande
           img={props.item[4].img}
           title={props.item[4].title}
-          description={props.item[4].description}
+          //description={props.item[4].description}
         ></CardLivroGrande>
       ) : null}
     </View>
@@ -149,18 +150,19 @@ const RenderHomeEditora = (props) => {
 };
 
 const generateData = () => {
+  const { dadosEditora } = useContext(EditoraContext);
   const dataList = [];
-
-  let size = DATA_RECENTES.length % 5;
+  const listaLivros = dadosEditora.listaLivrosDTO;
+  let size = listaLivros.length % 5;
   let count = 0;
 
   for (let i = 0; i <= size; i++) {
     let data = [];
     for (let j = 0; j < 5; j++) {
       data.push({
-        img: DATA_RECENTES[j + count]?.urlImg,
-        title: DATA_RECENTES[j + count]?.title,
-        description: DATA_RECENTES[j + count]?.description,
+        img: listaLivros[j + count]?.imagem,
+        title: listaLivros[j + count]?.nomeLivro,
+        //description: listaLivros[j + count]?.description,
       });
     }
     dataList.push(data);

@@ -12,6 +12,7 @@ import { useState, useContext, useEffect } from "react";
 import { Rating } from "react-native-ratings";
 import AxiosInstance from "../../api/AxiosInstance";
 import { DataContext } from "../../context/DataContext";
+import { EditoraContext } from "../../context/EditoraContext";
 
 //const { rating } = this.props;
 
@@ -55,8 +56,10 @@ const DATA_DESTAQUE = {
   rating: 5,
 };
 
-const Editora = ({ img, navigation }) => {
+const Editora = ({ item, navigation }) => {
+  const { armazenarDadosEditora } = useContext(EditoraContext);
   const onPressHandler = () => {
+    armazenarDadosEditora(item);
     navigation.navigate("Editora");
   };
   return (
@@ -64,7 +67,7 @@ const Editora = ({ img, navigation }) => {
       <TouchableOpacity onPress={onPressHandler}>
         <ImageBackground
           source={{
-            uri: `data:image/png;base64,${img}`,
+            uri: `data:image/png;base64,${item.img}`,
           }}
           style={styles.imageEditora}
         ></ImageBackground>
@@ -121,6 +124,8 @@ export default function Home({ navigation }) {
       .then((resultado) => {
         console.log("GetTodasEditoras:" + resultado.data);
         setDadosEditora(resultado.data);
+        console.log("aqui");
+        console.log(resultado.data);
       })
       .catch((error) => {
         console.log(
@@ -137,11 +142,7 @@ export default function Home({ navigation }) {
           horizontal={true}
           data={dadosEditora}
           renderItem={({ item }) => (
-            <Editora
-              img={item.img}
-              text={item.nomeEditora}
-              navigation={navigation}
-            />
+            <Editora item={item} navigation={navigation} />
           )}
           keyExtractor={(item) => item.codigoEditora}
         />
