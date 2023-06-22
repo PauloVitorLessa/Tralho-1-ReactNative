@@ -1,6 +1,7 @@
 import Home from "./src/pages/Home/index";
 import Login from "./src/pages/Login";
 import Editora from "./src/pages/Editora";
+import Livro from './src/pages/Livro'
 import "react-native-gesture-handler";
 import { DataProvider } from "./src/context/DataContext";
 import { EditoraProvider } from "./src/context/EditoraContext";
@@ -15,10 +16,11 @@ export default function App() {
       <EditoraProvider>
         <NavigationContainer>
         {/* screenOptions={{ headerShown: false }} */}
-          <Stack.Navigator>
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Editora" component={Editora} />
+            <Stack.Screen name="Livro" component={Livro} />
           </Stack.Navigator>
         </NavigationContainer>
       </EditoraProvider>

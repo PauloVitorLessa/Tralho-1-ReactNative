@@ -167,8 +167,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "black",
     flex: 1,
-    marginTop: 37,
-    padding: 10,
   },
   editorasContainer: {
     margin: 10,
