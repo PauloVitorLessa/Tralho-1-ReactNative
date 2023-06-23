@@ -114,9 +114,9 @@ export default function Home({ navigation }) {
       <View style={styles.destaqueContainer}>
         <Text style={styles.recentesContainer.text}>Destaque</Text>
         <CardDestaque
-          urlImage={DATA_DESTAQUE.urlImg}
-          title={DATA_DESTAQUE.title}
-          description={DATA_DESTAQUE.description}
+          urlImage={"https://m.media-amazon.com/images/I/819js3EQwbL.jpg"}
+          title={"1984"}
+          description={"Livro sobre uma distopia"}
           rating={DATA_DESTAQUE.rating}
         />
       </View>
@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "green",
+    color: "white",
     paddingBottom: 10,
   },
   imageEditora: {

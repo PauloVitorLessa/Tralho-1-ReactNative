@@ -21,6 +21,7 @@ export default function DrawerRoutes() {
         name="TabRoutes"
         component={TabRoutes}
         options={{
+          title: "Home",
           drawerIcon: ({ color, size }) => (
             <MaterialIcons name="home" color={color} size={size} />
           ),

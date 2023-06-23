@@ -4,13 +4,20 @@ import { Text, View, FlatList, StyleSheet, Image } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { DataContext } from "../../context/DataContext";
 import AxiosInstance from "../../api/AxiosInstance";
+import { EditoraContext } from "../../context/EditoraContext";
 
-export default function HomeEditoras() {
+export default function HomeEditoras({ navigation }) {
+  const { armazenarDadosEditora } = useContext(EditoraContext);
   const { dadosUsuario } = useContext(DataContext);
   const { listaEditoras } = useContext(DataContext);
   const [dadosEditora, setDadosEditora] = useState("");
-  const Item = ({ img }) => (
-    <TouchableOpacity>
+  const Item = ({ img, item }) => (
+    <TouchableOpacity
+      onPress={() => {
+        armazenarDadosEditora(item);
+        navigation.navigate("Editora");
+      }}
+    >
       <Image
         style={styles.tinyLogo}
         source={{
@@ -27,11 +34,7 @@ export default function HomeEditoras() {
         numColumns={2}
         data={listaEditoras}
         renderItem={({ item }) => (
-          <Item
-            img={item.img}
-            navigation={navigation}
-            nome={item.nomeEditora}
-          />
+          <Item img={item.img} nome={item.nomeEditora} item={item} />
         )}
         keyExtractor={(item) => item.codigoEditora}
       />
