@@ -3,7 +3,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 
 import Home from "../pages/Home";
 import Login from "../pages/Login";
-
+import TabRoutes from "./TabRoutes";
 import HomeEditoras from "../pages/HomeEditoras";
 
 const Drawer = createDrawerNavigator();
@@ -11,20 +11,19 @@ const Drawer = createDrawerNavigator();
 export default function DrawerRoutes() {
   return (
     <Drawer.Navigator
-      initialRouteName="Login"
+      initialRouteName="TabRoutes"
       screenOptions={{
         tabBarActiveTintColor: "green",
         tabBarInactiveTintColor: "gray",
-        headerShown: false,
       }}
     >
       <Drawer.Screen
-        name="Login"
-        component={Login}
+        name="TabRoutes"
+        component={TabRoutes}
         options={{
-          tabBarStyle: {
-            display: "none",
-          },
+          drawerIcon: ({ color, size }) => (
+            <MaterialIcons name="home" color={color} size={size} />
+          ),
         }}
       />
       <Drawer.Screen

@@ -28,7 +28,7 @@ export default function Login({ navigation }) {
         var jwtToken = resultado.data;
         armazenarDadosUsuario(jwtToken["accessToken"]);
 
-        navigation.navigate("Home");
+        navigation.navigate("DrawerRoutes");
       } else {
         console.log("Erro ao realizar o login");
       }
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     padding: 9,
     width: 270,
     height: 40,
-    borderColor: 'green',
+    borderColor: "green",
     fontSize: 16,
   },
   passwordInputContainer: {
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     height: 40,
     padding: 5,
     borderWidth: 2,
-    borderColor: 'green',
+    borderColor: "green",
   },
   passwordInput: {
     flex: 1,
@@ -132,10 +132,10 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 5,
     alignItems: "center",
-    justifyContent: "center", 
+    justifyContent: "center",
   },
   buttonText: {
     color: "white",
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });

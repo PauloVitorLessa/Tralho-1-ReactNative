@@ -11,22 +11,12 @@ const Tab = createBottomTabNavigator();
 export default function TabRoutes() {
   return (
     <Tab.Navigator
-      initialRouteName="Login"
       screenOptions={{
         tabBarActiveTintColor: "green",
         tabBarInactiveTintColor: "gray",
         headerShown: false,
       }}
     >
-      <Tab.Screen
-        name="Login"
-        component={Login}
-        options={{
-          tabBarStyle: {
-            display: "none",
-          },
-        }}
-      />
       <Tab.Screen
         name="Home"
         component={Home}

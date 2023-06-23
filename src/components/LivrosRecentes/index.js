@@ -12,15 +12,19 @@ import {
 import AxiosInstance from "../../api/AxiosInstance";
 import { DataContext } from "../../context/DataContext";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { LivroContext } from "../../context/LivroContext";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
-const Item = ({ img, navigation }) => (
+const Item = ({ img, nav, item, func }) => (
   <TouchableOpacity
     style={styles.item}
     onPress={() => {
-      navigation.navigate("Livro");
+      console.log("funcao");
+      console.log(func);
+      func(item);
+      nav.navigate("Livro");
     }}
   >
     <Image
@@ -33,7 +37,10 @@ const Item = ({ img, navigation }) => (
 );
 
 export default function LivrosRecentes({ navigation }) {
+  console.log(navigation);
   const { dadosUsuario } = useContext(DataContext);
+  const { armazenarDadosLivro } = useContext(LivroContext);
+
   const [dadosLivros, setDadosLivros] = useState("");
 
   useEffect(() => {
@@ -66,8 +73,10 @@ export default function LivrosRecentes({ navigation }) {
           renderItem={({ item }) => (
             <Item
               img={item.img}
-              navigation={navigation}
+              nav={navigation}
               nome={item.nomeEditora}
+              item={item}
+              func={armazenarDadosLivro}
             />
           )}
           keyExtractor={(item) => item.codigoLivro}

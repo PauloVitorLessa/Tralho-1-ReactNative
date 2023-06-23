@@ -28,6 +28,8 @@ const DATA_DESTAQUE = {
 };
 
 const Editora = ({ item, navigation }) => {
+  console.log("editora:");
+  console.log(navigation);
   const { armazenarDadosEditora } = useContext(EditoraContext);
   const onPressHandler = () => {
     armazenarDadosEditora(item);
@@ -96,6 +98,7 @@ export default function Home({ navigation }) {
     <View style={styles.container}>
       <View style={styles.editorasContainer}>
         <Text style={styles.title}>EDITORAS</Text>
+
         <FlatList
           //disableScrollViewPanResponder
           horizontal={true}
@@ -107,7 +110,7 @@ export default function Home({ navigation }) {
         />
       </View>
       {/* Chama do card de Livros Recentes */}
-      <LivrosRecentes />
+      <LivrosRecentes navigation={navigation} />
       <View style={styles.destaqueContainer}>
         <Text style={styles.recentesContainer.text}>Destaque</Text>
         <CardDestaque

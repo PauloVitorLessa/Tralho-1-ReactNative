@@ -7,7 +7,7 @@ import DrawerRoutes from "./DrawerRoutes";
 export default function Routes() {
   return (
     <NavigationContainer>
-      <DrawerRoutes />
+      <StackRoutes />
     </NavigationContainer>
   );
 }
