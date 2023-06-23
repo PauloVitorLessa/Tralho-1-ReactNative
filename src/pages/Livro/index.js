@@ -9,7 +9,6 @@ import {
   Dimensions,
   TouchableOpacity,
 } from "react-native";
-import AxiosInstance from "../../api/AxiosInstance";
 import { DataContext } from "../../context/DataContext";
 import { LivroContext } from "../../context/LivroContext";
 
@@ -45,7 +44,6 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     flex: 1,
   },
-
   cardInfo: {
     width: windowWidth / 2 - 10,
     padding: 20,
