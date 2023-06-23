@@ -20,27 +20,6 @@ export default function HomeEditoras() {
     </TouchableOpacity>
   );
 
-  // useEffect(() => {
-  //   const { armazenarListaEditora } = useContext(DataContext);
-  //   armazenarListaEditora();
-  // }, []);
-
-  // const getTodasEditoras = async () => {
-  //   await AxiosInstance.get(
-  //     "/editoras",
-  //     //Abaixo está pegando o Token da JWT
-  //     { headers: { Authorization: `Bearer ${dadosUsuario?.token}` } }
-  //   )
-  //     .then((resultado) => {
-  //       console.log("getTodasEditoras" + JSON.stringify(resultado.data));
-  //       setDadosEditora(resultado.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(
-  //         "Ocorreu um erro ao recuperar os dados das editoras: " + error
-  //       );
-  //     });
-  // };
   return (
     <View style={styles.container}>
       <Text style={styles.title}>EDITORAS</Text>

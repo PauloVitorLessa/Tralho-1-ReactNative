@@ -7,6 +7,8 @@ import "react-native-gesture-handler";
 import { DataProvider } from "./src/context/DataContext";
 import { EditoraProvider } from "./src/context/EditoraContext";
 import { LivroProvider } from "./src/context/LivroContext";
+import StackRoutes from "./src/routes/StackRoute";
+import Routes from "./src/routes";
 
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
@@ -22,10 +24,11 @@ export default function App() {
     <DataProvider>
       <EditoraProvider>
         <LivroProvider>
-          <NavigationContainer>
+          <Routes />
+
           {/* screenOptions={{ headerShown: false }} */}
           {/* <Stack.Navigator screenOptions={{ headerShown: false }}> */}
-          <Drawer.Navigator useLegacyImplementation>
+          {/* <Drawer.Navigator useLegacyImplementation>
             <Drawer.Screen
               name="Login"
               component={Login}
@@ -50,9 +53,8 @@ export default function App() {
               component={HomeEditoras}
               options={{ headerShown: true }}
             />
-          </Drawer.Navigator>
-        </NavigationContainer>
-       </LivroProvider>
+          </Drawer.Navigator> */}
+        </LivroProvider>
       </EditoraProvider>
     </DataProvider>
   );
