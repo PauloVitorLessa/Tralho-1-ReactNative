@@ -5,6 +5,8 @@ import {
   TouchableOpacity,
   FlatList,
   Image,
+  ImageBackground,
+  Dimensions,
 } from "react-native";
 import { useState, useContext, useEffect } from "react";
 import { Rating } from "react-native-ratings";
@@ -12,6 +14,9 @@ import AxiosInstance from "../../api/AxiosInstance";
 import { DataContext } from "../../context/DataContext";
 import { EditoraContext } from "../../context/EditoraContext";
 import LivrosRecentes from "../../components/LivrosRecentes";
+
+const windowWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
 
 const DATA_DESTAQUE = {
   id: "1",
@@ -117,7 +122,7 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     //alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-between",
     backgroundColor: "black",
     flex: 1,
   },
@@ -126,10 +131,10 @@ const styles = StyleSheet.create({
   },
 
   recentesContainer: {
-    alignItems: "flex-start",
+    //alignItems: "flex-start",
 
     backgroundColor: "black",
-    flex: 0.6,
+    //flex: 0.6,
 
     text: {
       color: "white",
@@ -140,7 +145,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
 
     backgroundColor: "black",
-    flex: 1,
+    //flex: 1,
 
     text: {
       color: "white",
@@ -201,7 +206,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: "green",
     paddingBottom: 10,
   },
@@ -219,8 +224,8 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
   },
   imageCardDestaque: {
-    width: 340,
-    height: 230,
+    width: windowWidth - 10,
+    height: windowHeight / 4,
     resizeMode: "cover",
   },
   CardLivro: {
@@ -251,5 +256,5 @@ const styles = StyleSheet.create({
     margin: 10,
     width: 70,
     height: 70,
-  }
+  },
 });
