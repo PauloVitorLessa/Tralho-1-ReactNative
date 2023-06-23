@@ -1,8 +1,6 @@
 # 1º trabalho em grupo da disciplina Desenvolvimento de Aplicativo Mobile do Serratec 23.1
 
-Desenvolvedores:
-
-# Integrantes:
+# Desenvolvedores:
 - [PAULO VITOR DE OLIVEIRA DOS REIS LESSA](https://github.com/PauloVitorLessa)
 - [MARIANE DOS SANTOS MAGALHÃES](https://github.com/MarianeSMagalhaes)
 - [Rodrigo de Oliveira Bastos](https://github.com/bastosrodrigo)
