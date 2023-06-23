@@ -69,6 +69,7 @@ const CardDestaque = ({ urlImage, title, description, rating }) => (
 
 export default function Home({ navigation }) {
   const { dadosUsuario } = useContext(DataContext);
+  const { armazenarListaEditora } = useContext(DataContext);
   const [dadosEditora, setDadosEditora] = useState();
 
   useEffect(() => {
@@ -82,6 +83,7 @@ export default function Home({ navigation }) {
       .then((resultado) => {
         console.log("GetTodasEditoras:" + resultado.data);
         setDadosEditora(resultado.data);
+        armazenarListaEditora(resultado.data);
       })
       .catch((error) => {
         console.log(

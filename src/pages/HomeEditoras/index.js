@@ -7,6 +7,7 @@ import AxiosInstance from "../../api/AxiosInstance";
 
 export default function HomeEditoras() {
   const { dadosUsuario } = useContext(DataContext);
+  const { listaEditoras } = useContext(DataContext);
   const [dadosEditora, setDadosEditora] = useState("");
   const Item = ({ img }) => (
     <TouchableOpacity>
@@ -19,31 +20,33 @@ export default function HomeEditoras() {
     </TouchableOpacity>
   );
 
-  useEffect(() => {
-    getTodasEditoras();
-  }, []);
+  // useEffect(() => {
+  //   const { armazenarListaEditora } = useContext(DataContext);
+  //   armazenarListaEditora();
+  // }, []);
 
-  const getTodasEditoras = async () => {
-    await AxiosInstance.get(
-      "/editoras",
-      //Abaixo está pegando o Token da JWT
-      { headers: { Authorization: `Bearer ${dadosUsuario?.token}` } }
-    )
-      .then((resultado) => {
-        console.log("getTodasEditoras" + JSON.stringify(resultado.data));
-        setDadosEditora(resultado.data);
-      })
-      .catch((error) => {
-        console.log(
-          "Ocorreu um erro ao recuperar os dados das editoras: " + error
-        );
-      });
-  };
+  // const getTodasEditoras = async () => {
+  //   await AxiosInstance.get(
+  //     "/editoras",
+  //     //Abaixo está pegando o Token da JWT
+  //     { headers: { Authorization: `Bearer ${dadosUsuario?.token}` } }
+  //   )
+  //     .then((resultado) => {
+  //       console.log("getTodasEditoras" + JSON.stringify(resultado.data));
+  //       setDadosEditora(resultado.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(
+  //         "Ocorreu um erro ao recuperar os dados das editoras: " + error
+  //       );
+  //     });
+  // };
   return (
     <View style={styles.container}>
       <Text style={styles.title}>EDITORAS</Text>
       <FlatList
-        data={dadosEditora}
+        numColumns={2}
+        data={listaEditoras}
         renderItem={({ item }) => (
           <Item
             img={item.img}
@@ -61,6 +64,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "black",
+    justifyContent: "center",
+    alignItems: "center",
   },
   item: {
     backgroundColor: "#f9c2ff",

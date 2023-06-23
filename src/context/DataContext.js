@@ -6,6 +6,7 @@ export const DataContext = createContext({});
 
 export const DataProvider = ({ children }) => {
   const [dadosUsuario, setDadosUsuario] = useState("");
+  const [listaEditoras, setListaEditoras] = useState("");
 
   const armazenarDadosUsuario = (jwt) => {
     var jwtDecodificado = jwt_decode(jwt);
@@ -22,11 +23,17 @@ export const DataProvider = ({ children }) => {
     });
   };
 
+  const armazenarListaEditora = (lista) => {
+    setListaEditoras(lista);
+  };
+
   return (
     <DataContext.Provider
       value={{
         dadosUsuario,
         armazenarDadosUsuario,
+        listaEditoras,
+        armazenarListaEditora,
       }}
     >
       {children}
